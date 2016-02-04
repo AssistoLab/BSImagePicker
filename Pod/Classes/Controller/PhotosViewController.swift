@@ -350,8 +350,14 @@ extension PhotosViewController {
             
             return false
         }
-        
-        return collectionView.userInteractionEnabled && photosDataSource!.selections.count < settings.maxNumberOfSelections
+		
+		let hasReachedMaxNumberOfSelections = (photosDataSource!.selections.count >= settings.maxNumberOfSelections)
+		
+		if hasReachedMaxNumberOfSelections {
+			settings.maximumSelectionReached?()
+		}
+		
+        return collectionView.userInteractionEnabled && !hasReachedMaxNumberOfSelections
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

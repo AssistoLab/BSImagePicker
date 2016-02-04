@@ -138,7 +138,19 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
             settings.maxNumberOfSelections = newValue
         }
     }
-    
+	
+	/**
+	See BSImagePicketSettings for documentation
+	*/
+	public var maximumSelectionReached: (() -> Void)? {
+		get {
+			return settings.maximumSelectionReached
+		}
+		set {
+			settings.maximumSelectionReached = newValue
+		}
+	}
+	
     /**
     See BSImagePicketSettings for documentation
     */

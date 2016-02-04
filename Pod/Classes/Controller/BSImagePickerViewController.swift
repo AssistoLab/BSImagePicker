@@ -34,7 +34,7 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
     private var cancelBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: nil)
     private let albumTitleView: AlbumTitleView = bundle.loadNibNamed("AlbumTitleView", owner: nil, options: nil).first as! AlbumTitleView
     
-    static let bundle: NSBundle = NSBundle(path: NSBundle(forClass: PhotosViewController.self).pathForResource("BSImagePicker", ofType: "bundle")!)!
+    static let bundle: NSBundle = NSBundle.mainBundle()
     
     lazy var fetchResults: [PHFetchResult] = {
         let fetchOptions = PHFetchOptions()

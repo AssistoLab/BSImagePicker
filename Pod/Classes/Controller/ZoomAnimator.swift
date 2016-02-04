@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import UIKit
-import UIImageViewModeScaleAspect
 
 final class ZoomAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     var sourceImageView: UIImageView?

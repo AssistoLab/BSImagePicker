@@ -22,6 +22,7 @@
 
 import UIKit
 import Photos
+import BSGridCollectionViewLayout
 
 final class PhotosViewController : UICollectionViewController {    
     var selectionClosure: ((asset: PHAsset) -> Void)?

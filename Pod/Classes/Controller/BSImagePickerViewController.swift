@@ -50,7 +50,7 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
     
     var photosViewController: PhotosViewController!
     
-    class func authorize(status: PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus(), fromViewController: UIViewController, completion: (authorized: Bool) -> Void) {
+    public class func authorize(status: PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus(), fromViewController: UIViewController, completion: (authorized: Bool) -> Void) {
         switch status {
         case .Authorized:
             // We are authorized. Run block
@@ -289,7 +289,7 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
             photosViewController.deselectionClosure = newValue
         }
     }
-    var cancelClosure: ((assets: [PHAsset]) -> Void)? {
+    public var cancelClosure: ((assets: [PHAsset]) -> Void)? {
         get {
             return photosViewController.cancelClosure
         }
@@ -297,7 +297,7 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
             photosViewController.cancelClosure = newValue
         }
     }
-    var finishClosure: ((assets: [PHAsset]) -> Void)? {
+    public var finishClosure: ((assets: [PHAsset]) -> Void)? {
         get {
             return photosViewController.finishClosure
         }

@@ -53,6 +53,6 @@ final class CameraCollectionViewDataSource: NSObject, UICollectionViewDataSource
     }
     
     func registerCellIdentifiersForCollectionView(collectionView: UICollectionView?) {
-        collectionView?.registerNib(UINib(nibName: "CameraCell", bundle: BSImagePickerViewController.bundle), forCellWithReuseIdentifier: cameraCellIdentifier)
+        collectionView?.registerNib(UINib(nibName: "CameraCell", bundle: BSImagePickerViewController.bundle()), forCellWithReuseIdentifier: cameraCellIdentifier)
     }
 }

@@ -32,9 +32,7 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
     
     private var doneBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: nil)
     private var cancelBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: nil, action: nil)
-    private let albumTitleView: AlbumTitleView = bundle.loadNibNamed("AlbumTitleView", owner: nil, options: nil).first as! AlbumTitleView
-    
-    static let bundle: NSBundle = NSBundle.mainBundle()
+    private let albumTitleView: AlbumTitleView = BSImagePickerViewController.bundle().loadNibNamed("AlbumTitleView", owner: nil, options: nil).first as! AlbumTitleView
     
     lazy var fetchResults: [PHFetchResult] = {
         let fetchOptions = PHFetchOptions()
@@ -68,6 +66,16 @@ public class BSImagePickerViewController : UINavigationController, BSImagePicker
             })
         }
     }
+	
+	class func bundle() -> NSBundle {
+		let podBundle = NSBundle(forClass: BSImagePickerViewController.self)
+		
+		guard let bundleURL = podBundle.URLForResource("BSImagePicker", withExtension: "bundle") else {
+			return NSBundle.mainBundle()
+		}
+		
+		return NSBundle(URL: bundleURL)!
+	}
     
     /**
     Sets up an classic image picker with results from camera roll and albums

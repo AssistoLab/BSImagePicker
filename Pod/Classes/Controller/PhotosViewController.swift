@@ -49,7 +49,7 @@ final class PhotosViewController : UICollectionViewController {
     private var doneBarButtonTitle: String?
     
     lazy var albumsViewController: AlbumsViewController = {
-        let storyboard = UIStoryboard(name: "Albums", bundle: BSImagePickerViewController.bundle)
+        let storyboard = UIStoryboard(name: "Albums", bundle: BSImagePickerViewController.bundle())
         let vc = storyboard.instantiateInitialViewController() as! AlbumsViewController
         vc.tableView.dataSource = self.albumsDataSource
         vc.tableView.delegate = self
